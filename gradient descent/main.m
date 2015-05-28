@@ -5,7 +5,7 @@ gradf = @(x) [x(1);9*x(2)]; % gradient of function f
 
 x0 = [0.5;0.5]; % initial vector
 tol = 10^(-6);  % tolerance
-itmax = 1000;  % maximum iteration
+itmax = 10000;  % maximum iteration
 
 [x,it] = grad_verfahren(f, gradf, x0, itmax, tol)
 %It converges faster for small values of delta and slowly for larger values
@@ -19,10 +19,12 @@ itmax = 1000;  % maximum iteration
 % We would appreciate if you could give us a hint on that.
 
 %% Rosenbrock function
-f = @(x) 100*(x(2) -x(1)^2)^2 + (1-x(1))^2;
+% f = @(x) 100*(x(2) -x(1)^2)^2 + (1-x(1))^2;
+f = @(x) (1-x(1))^2 + 100*(x(2) - x(1)^2)^2;
 
 % gradient of Rosenbrock function
-gradf = @(x) [400*x(1)^2-400*x(1)*x(2)+2*x(1)-2;200*(x(2)-x(1)^2)];
+% gradf = @(x) [400*x(1)^2-400*x(1)*x(2)+2*x(1)-2;200*(x(2)-x(1)^2)];
+gradf = @(x)[(2*x(1) - 400*x(1)*(- x(1)^2 + x(2)) - 2) ; ( - 200*x(1)^2 + 200*x(2))];
 
 x0 = [-1.9;2]; % initial vector
 %x0 = [2;-1.9];

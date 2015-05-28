@@ -9,8 +9,8 @@ it_delta = zeros(7,1);
 for j = 1: 7
     it = 0;
     x = x0;
-        % check if pradient is precise enough
-        while ((norm(gradf(x))) > tol) && (it <= itmax)
+        % check if gradient is precise enough
+        while ((norm(gradf(x),2)) > tol) && (it <= itmax)
 %             gradf
             % compute stepsize
             sigma = armijo (f, gradf, x, delta(j));
@@ -21,7 +21,7 @@ for j = 1: 7
         end
     it_delta(j) = it;
 end
-% print array of amount of iterations
+% print array of iterations
 it
 figure;
 hold on; grid on;
