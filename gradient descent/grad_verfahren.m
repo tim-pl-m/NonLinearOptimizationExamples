@@ -8,9 +8,9 @@ for j = 1: 7
 it = 0;
 x = x0;
 while ((norm(gradf(x))) > tol) && (it <= itmax)
-    sigma = armijo (f, gradf, x, delta(j));
-    x = x -sigma*gradf(x);
-    it = it + 1;
+    sigma = armijo (f, gradf, x, delta(j))
+    x = x -sigma*gradf(x)
+    it = it + 1
 end
 it_delta(j) = it
 end
