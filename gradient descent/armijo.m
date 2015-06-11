@@ -13,10 +13,10 @@ while (f(x - sigma * gradf(x))> (f(x) - delta*sigma*dot(gradf(x)' ,gradf(x))))
 end;
 
 % widen stepsize if too small; with negative directions
-% while (f(x - sigma * gradf(x))< (f(x) - delta*sigma*dot(gradf(x)' ,gradf(x))))
-%     % take the middle
-%     sigma = 2 * sigma;
-% end;
+while (f(x - sigma * gradf(x))< (f(x) - delta*sigma*dot(gradf(x)' ,gradf(x))))
+    % take the middle
+    sigma = 2 * sigma;
+end;
 
 sigma = sigma/2;
 
