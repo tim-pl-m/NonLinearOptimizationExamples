@@ -4,8 +4,10 @@ function [x] = CG_method(f,gradf,H,x0,itmax,tol,sigma0)
     g = gradf(x0);
     x = x0;
     sigma = sigma0;
+    
+    figure;
     while (norm(g)>tol) && (it<=itmax)
-       sigma = powell(f,g,x,sigma);
+       sigma = powell(f,gradf,x,sigma0);
        x = x + sigma * d;
        %g_new = g + sigma * H(x) * d;
        g_new = gradf(x);
@@ -15,8 +17,8 @@ function [x] = CG_method(f,gradf,H,x0,itmax,tol,sigma0)
        if (d' * g >=0)
            d = -g;
        end
-       it = it+1;
-       plot(x);
+       it = it+1
+       plot(it,x,'.');
        hold on;
     end
 end
