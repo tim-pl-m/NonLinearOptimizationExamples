@@ -6,8 +6,8 @@ sigma = 1;
 
 %reduce stepsize if too big; with negative directions
 while (f(x - sigma * gradf(x))> (f(x) - delta*sigma*dot(gradf(x)' ,gradf(x))))
-    beInIntervall = 2/3
-%     beInIntervall = 0.5
+%     beInIntervall = 2/3
+    beInIntervall = 0.5;
     sigma = beInIntervall * (betta1 + betta2) * sigma;
     
 end;

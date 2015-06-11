@@ -5,7 +5,7 @@ gradf = @(x) [x(1);9*x(2)]; % gradient of function f
 
 x0 = [0.5;0.5]; % initial vector
 tol = 10^(-6);  % tolerance
-itmax = 100;  % maximum iteration
+itmax = 1000;  % maximum iteration
 
 [x,it] = grad_verfahren(f, gradf, x0, itmax, tol)
 %It converges faster for small values of delta and slowly for larger values
